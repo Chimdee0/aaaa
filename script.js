@@ -94,7 +94,7 @@ const messages = [
     "Neeree gj vv? Dahiad 1 bodood vz",
     "Hariult chn ene gej vv? 😭",
     "Okay... Svvleesee 2 dahi bolomj.",
-    "Zaza, shiidweriig chn hundelj bnaa 😂"
+    "Zaza, shiidweriig chn hundelj bnaa, Amjilt!😂"
 ];
 
 
