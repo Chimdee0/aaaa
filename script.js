@@ -43,6 +43,8 @@ const app =
 const db =
     getDatabase(app);
 
+const circusSong = new Audio("circus.mp3");
+circusSong.volume = 0.8;
 
 // ========================================
 // SAVE RESPONSE
@@ -208,6 +210,9 @@ function transitionScreen(callback) {
 // ========================================
 
 yesBtn.addEventListener("click", function() {
+    // 🎪 PLAY MUSIC
+    circusSong.currentTime = 0;
+    circusSong.play();
     saveResponse({
         action: "YES",
         noClicks: noCount
