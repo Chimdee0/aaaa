@@ -235,7 +235,7 @@ yesBtn.addEventListener("click", function() {
         document.getElementById("emoji").textContent = "🎪";
 
         document.getElementById("title").textContent =
-            "Meanwhile, me right now:";
+            "Chimdee yg odoo:";
 
         document.getElementById("question").innerHTML = `
             <img
