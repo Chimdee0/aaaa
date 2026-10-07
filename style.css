@@ -322,3 +322,9 @@ button {
         top 0.3s ease,
         transform 0.25s ease;
 }
+
+.calendar-days button.unavailable {
+    opacity: 0.45;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
