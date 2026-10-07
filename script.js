@@ -209,66 +209,149 @@ function transitionScreen(callback) {
 // YES BUTTON
 // ========================================
 
+// ========================================
+// YES BUTTON
+// ========================================
+
 yesBtn.addEventListener("click", function() {
-    // 🎪 PLAY MUSIC
+
+    // 🎪 PLAY MUSIC IMMEDIATELY
     circusSong.currentTime = 0;
     circusSong.play();
+
+    // Save YES
     saveResponse({
         action: "YES",
         noClicks: noCount
     });
 
+    // First fade out the current screen
     transitionScreen(function() {
 
-        document.getElementById("emoji").textContent = "🎉";
+        // ========================================
+        // 8 SECOND DANCING SCREEN
+        // ========================================
+
+        document.getElementById("emoji").textContent = "🎪";
 
         document.getElementById("title").textContent =
-            "YAAAY!";
+            "Meanwhile, me right now:";
 
-        document.getElementById("question").textContent =
-            "Okay, Юу хйимээр байна? 😎";
-
-        document.getElementById("buttons").innerHTML = `
-
-            <div class="activity-grid">
-
-                <button class="activity" data-activity="Coffee">
-                    ☕
-                    <span>Coffee</span>
-                </button>
-
-                <button class="activity" data-activity="Pizza">
-                    🍕
-                    <span>Pizza</span>
-                </button>
-
-                <button class="activity" data-activity="Burger">
-                    🍔
-                    <span>Burger</span>
-                </button>
-
-                <button class="activity" data-activity="Basketball">
-                    🏀
-                    <span>Хүлэгүүдийг үзэх</span>
-                </button>
-
-                <button class="activity" data-activity="Hiking">
-                    🥾
-                    <span>Ууланд гарах</span>
-                </button>
-
-                <button class="activity" data-activity="Movie">
-                    🎬
-                    <span>Кино (ер нь дэмий)</span>
-                </button>
-
+        document.getElementById("question").innerHTML = `
+            <img
+                src="giphy.gif"
+                alt="Dancing"
+                style="
+                    width: 220px;
+                    max-width: 80%;
+                    border-radius: 15px;
+                    display: block;
+                    margin: 15px auto;
+                "
+            >
+            <div id="countdown"
+                style="
+                    font-size: 32px;
+                    font-weight: bold;
+                    margin-top: 10px;
+                ">
+                8
             </div>
-
         `;
+
+        document.getElementById("buttons").innerHTML = "";
 
         message.textContent = "";
 
-        addActivityListeners();
+        // ========================================
+        // COUNTDOWN
+        // ========================================
+
+        let seconds = 8;
+
+        const countdown =
+            document.getElementById("countdown");
+
+        const timer = setInterval(function() {
+
+            seconds--;
+
+            if (seconds > 0) {
+
+                countdown.textContent = seconds;
+
+            } else {
+
+                clearInterval(timer);
+
+                // ========================================
+                // YAAAY SCREEN
+                // ========================================
+
+                transitionScreen(function() {
+
+                    document.getElementById("emoji").textContent =
+                        "🎉";
+
+                    document.getElementById("title").textContent =
+                        "YAAAY!";
+
+                    document.getElementById("question").textContent =
+                        "Okay, Юу хйимээр байна? 😎";
+
+                    document.getElementById("buttons").innerHTML = `
+
+                        <div class="activity-grid">
+
+                            <button class="activity"
+                                    data-activity="Coffee">
+                                ☕
+                                <span>Coffee</span>
+                            </button>
+
+                            <button class="activity"
+                                    data-activity="Pizza">
+                                🍕
+                                <span>Pizza</span>
+                            </button>
+
+                            <button class="activity"
+                                    data-activity="Burger">
+                                🍔
+                                <span>Burger</span>
+                            </button>
+
+                            <button class="activity"
+                                    data-activity="Basketball">
+                                🏀
+                                <span>Хүлэгүүдийг үзэх</span>
+                            </button>
+
+                            <button class="activity"
+                                    data-activity="Hiking">
+                                🥾
+                                <span>Ууланд гарах</span>
+                            </button>
+
+                            <button class="activity"
+                                    data-activity="Movie">
+                                🎬
+                                <span>Кино (ер нь дэмий)</span>
+                            </button>
+
+                        </div>
+
+                    `;
+
+                    message.textContent = "";
+
+                    addActivityListeners();
+
+                });
+
+            }
+
+        }, 1000);
 
     });
 
