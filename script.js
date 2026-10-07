@@ -224,7 +224,7 @@ yesBtn.addEventListener("click", function() {
         // 8 SECOND DANCING SCREEN
         // ========================================
 
-        document.getElementById("emoji").textContent = "🎪";
+        document.getElementById("emoji").textContent = "🕺😭";
 
         document.getElementById("title").textContent =
             "Chimdee yg odoo:";
