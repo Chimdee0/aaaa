@@ -321,7 +321,7 @@ yesBtn.addEventListener("click", function() {
 
                             <button class="activity"
                                     data-activity="Ууланд алхалт">
-                                🥾
+                                🏔️
                                 <span>Ууланд гарах</span>
                             </button>
 
