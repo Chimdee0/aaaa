@@ -507,8 +507,22 @@ function createCalendar(activity) {
 
     calendarDays.innerHTML = "";
 
+    // ========================================
+    // MY UNAVAILABLE DATES
+    // ========================================
 
-    // Empty spaces
+    const unavailableDates = {
+        "2026-10-12": "Full working day",
+        "2026-10-13": "Family plan",
+        "2026-10-19": "Hotel duty",
+        "2026-10-20": "Full working day",
+        "2026-10-26": "Family plan",
+        "2026-10-27": "Hotel duty"
+    };
+
+    // ========================================
+    // EMPTY SPACES
+    // ========================================
 
     for (let i = 0; i < firstDay; i++) {
 
@@ -519,8 +533,9 @@ function createCalendar(activity) {
 
     }
 
-
-    // Days
+    // ========================================
+    // DAYS
+    // ========================================
 
     for (let day = 1; day <= daysInMonth; day++) {
 
@@ -537,6 +552,16 @@ function createCalendar(activity) {
 
         today.setHours(0, 0, 0, 0);
 
+        // Create YYYY-MM-DD
+        const dateKey =
+            date.getFullYear() + "-" +
+            String(date.getMonth() + 1).padStart(2, "0") + "-" +
+            String(date.getDate()).padStart(2, "0");
+
+        // ========================================
+        // PAST DATE
+        // ========================================
+
         if (date < today) {
 
             button.disabled = true;
@@ -544,28 +569,83 @@ function createCalendar(activity) {
 
         }
 
-        button.addEventListener("click", function() {
+        // ========================================
+        // MY UNAVAILABLE DATE
+        // ========================================
 
-            document
-                .querySelectorAll(".calendar-days button")
-                .forEach(function(btn) {
-                    btn.classList.remove("selected");
-                });
+        if (unavailableDates[dateKey]) {
 
-            button.classList.add("selected");
+            button.disabled = true;
+            button.classList.add("unavailable");
 
-            selectedDate = date;
+        }
 
-            confirmBtn.disabled = false;
+        // ========================================
+        // AVAILABLE DATE
+        // ========================================
 
-        });
+        if (
+            date >= today &&
+            !unavailableDates[dateKey]
+        ) {
+
+            button.addEventListener("click", function() {
+
+                document
+                    .querySelectorAll(".calendar-days button")
+                    .forEach(function(btn) {
+                        btn.classList.remove("selected");
+                    });
+
+                button.classList.add("selected");
+
+                selectedDate = date;
+
+                confirmBtn.disabled = false;
+
+            });
+
+        }
 
         calendarDays.appendChild(button);
 
     }
 
+    // ========================================
+    // MY SCHEDULE
+    // ========================================
 
-    // Previous month
+    const scheduleContainer =
+        document.createElement("div");
+
+    scheduleContainer.style.marginTop = "18px";
+    scheduleContainer.style.textAlign = "left";
+    scheduleContainer.style.fontSize = "14px";
+
+    scheduleContainer.innerHTML = `
+        <div style="
+            font-weight: bold;
+            margin-bottom: 8px;
+        ">
+            📋 My schedule
+        </div>
+
+        <div>🔒 Oct 12 — Full working day</div>
+        <div>🔒 Oct 13 — Family plan</div>
+        <div>🔒 Oct 19 — Hotel duty</div>
+        <div>🔒 Oct 20 — Full working day</div>
+        <div>🔒 Oct 26 — Family plan</div>
+        <div>🔒 Oct 27 — Hotel duty</div>
+    `;
+
+    document
+        .querySelector(".calendar")
+        .appendChild(scheduleContainer);
+
+
+    // ========================================
+    // PREVIOUS MONTH
+    // ========================================
 
     document.getElementById("prevMonth")
         .addEventListener("click", function() {
@@ -579,7 +659,9 @@ function createCalendar(activity) {
         });
 
 
-    // Next month
+    // ========================================
+    // NEXT MONTH
+    // ========================================
 
     document.getElementById("nextMonth")
         .addEventListener("click", function() {
@@ -593,7 +675,9 @@ function createCalendar(activity) {
         });
 
 
-    // Confirm
+    // ========================================
+    // CONFIRM
+    // ========================================
 
     confirmBtn.addEventListener("click", function() {
 
@@ -605,6 +689,7 @@ function createCalendar(activity) {
                 month: "long",
                 day: "numeric"
             });
+
         saveResponse({
             action: "DATE",
             activity: activity,
