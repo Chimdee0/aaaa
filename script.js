@@ -314,19 +314,19 @@ yesBtn.addEventListener("click", function() {
                             </button>
 
                             <button class="activity"
-                                    data-activity="Basketball">
+                                    data-activity="Хүлэгүүдийг үзье">
                                 🏀
                                 <span>Хүлэгүүдийг үзэх</span>
                             </button>
 
                             <button class="activity"
-                                    data-activity="Hiking">
+                                    data-activity="Ууланд алхалт">
                                 🥾
                                 <span>Ууланд гарах</span>
                             </button>
 
                             <button class="activity"
-                                    data-activity="Movie">
+                                    data-activity="КИНО">
                                 🎬
                                 <span>Кино (ер нь дэмий)</span>
                             </button>
