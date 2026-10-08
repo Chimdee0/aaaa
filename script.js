@@ -124,33 +124,27 @@ noBtn.addEventListener("click", function() {
             Math.max(0.3, 1 - noCount * 0.18);
 
         // Get button size
+        const card = document.querySelector(".card");
+
         const buttonWidth = noBtn.offsetWidth;
         const buttonHeight = noBtn.offsetHeight;
-
-        // Keep button inside the screen
+        
+        const padding = 20;
+        
         const maxX =
-            window.innerWidth - buttonWidth - 20;
-
+            card.clientWidth - buttonWidth - padding;
+        
         const maxY =
-            window.innerHeight - buttonHeight - 20;
-
-        // Random position anywhere on screen
+            card.clientHeight - buttonHeight - padding;
+        
         const randomX =
-            Math.random() * maxX + 10;
-
+            Math.random() * (maxX - padding) + padding;
+        
         const randomY =
-            Math.random() * maxY + 10;
-
-        noBtn.style.left =
-            randomX + "px";
-
-        noBtn.style.top =
-            randomY + "px";
-
-        noBtn.style.transform =
-            `rotate(${Math.random() * 20 - 10}deg)
-             scale(${noScale})`;
-
+            Math.random() * (maxY - padding) + padding;
+        
+        noBtn.style.left = randomX + "px";
+        noBtn.style.top = randomY + "px";
         // Make YES bigger
         const yesScale =
             1 + noCount * 0.4;
