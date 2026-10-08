@@ -315,8 +315,9 @@ button {
     transition: transform 0.25s ease;
 }
 #noBtn {
-    position: fixed;
+    position: relative;
     z-index: 100;
+
     transition:
         left 0.3s ease,
         top 0.3s ease,
