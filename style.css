@@ -303,11 +303,6 @@ button {
 
 /* NO button */
 
-#noBtn {
-    transition:
-        transform 0.25s ease,
-        background 0.2s ease;
-}
 
 #noBtn:hover {
     background: #ddd;
@@ -334,11 +329,10 @@ button {
     transition: transform 0.25s ease;
 }
 
-#noBtn {
-    transition: transform 0.25s ease;
+
 }
 #noBtn {
-    position: relative;
+    position: absolute;
     z-index: 100;
     transition:
         left 0.3s ease,
