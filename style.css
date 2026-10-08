@@ -11,39 +11,25 @@ body {
     align-items: center;
 
     font-family: Arial, sans-serif;
-
-    background:
-        radial-gradient(circle at 15% 20%, #ffd6e7, transparent 35%),
-        radial-gradient(circle at 85% 25%, #d9e8ff, transparent 35%),
-        radial-gradient(circle at 50% 90%, #e4d7ff, transparent 40%),
-        #fff5fb;
+    background: #ffc9de;
 }
 
 .card {
     width: 90%;
     max-width: 500px;
-
     padding: 50px 30px;
 
     text-align: center;
 
-    background: rgba(255, 255, 255, 0.68);
-
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-
-    border: 1px solid rgba(255, 255, 255, 0.8);
-
-    border-radius: 28px;
-
-    box-shadow:
-        0 20px 60px rgba(120, 80, 150, 0.18);
+    background: #fffaf0;
+    border: 3px solid #111;
+    border-radius: 24px;
+    box-shadow: 8px 8px 0 #111;
 
     position: relative;
     overflow: hidden;
     animation: cardFloat 4s ease-in-out infinite;
 }
-
 .emoji {
     font-size: 55px;
     margin-bottom: 15px;
