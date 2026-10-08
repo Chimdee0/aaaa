@@ -41,6 +41,7 @@ body {
 
     position: relative;
     overflow: hidden;
+    animation: cardFloat 4s ease-in-out infinite;
 }
 
 .emoji {
@@ -329,10 +330,8 @@ button {
     transition: transform 0.25s ease;
 }
 
-
-}
 #noBtn {
-    position: absolute;
+    position: relative;
     z-index: 100;
     transition:
         left 0.3s ease,
