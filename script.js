@@ -105,10 +105,11 @@ const messages = [
 // NO BUTTON
 // ========================================
 
+
 noBtn.addEventListener("click", function() {
 
     noCount++;
-    noBtn.style.position = "fixed";
+
     saveResponse({
         action: "NO",
         noClicks: noCount
@@ -123,28 +124,50 @@ noBtn.addEventListener("click", function() {
         const noScale =
             Math.max(0.3, 1 - noCount * 0.18);
 
-        // Get button size
+        // On first click, switch from normal layout
+        // to card-contained movement
+        noBtn.style.position = "absolute";
+
         const card = document.querySelector(".card");
 
-        const buttonWidth = noBtn.offsetWidth;
-        const buttonHeight = noBtn.offsetHeight;
-        
+        const buttonWidth =
+            noBtn.offsetWidth;
+
+        const buttonHeight =
+            noBtn.offsetHeight;
+
         const padding = 20;
-        
+
         const maxX =
-            card.clientWidth - buttonWidth - padding;
-        
+            card.clientWidth -
+            buttonWidth -
+            padding;
+
         const maxY =
-            card.clientHeight - buttonHeight - padding;
-        
+            card.clientHeight -
+            buttonHeight -
+            padding;
+
         const randomX =
-            Math.random() * (maxX - padding) + padding;
-        
+            Math.random() *
+            (maxX - padding) +
+            padding;
+
         const randomY =
-            Math.random() * (maxY - padding) + padding;
-        
-        noBtn.style.left = randomX + "px";
-        noBtn.style.top = randomY + "px";
+            Math.random() *
+            (maxY - padding) +
+            padding;
+
+        noBtn.style.left =
+            randomX + "px";
+
+        noBtn.style.top =
+            randomY + "px";
+
+        noBtn.style.transform =
+            `rotate(${Math.random() * 20 - 10}deg)
+             scale(${noScale})`;
+
         // Make YES bigger
         const yesScale =
             1 + noCount * 0.4;
@@ -157,16 +180,15 @@ noBtn.addEventListener("click", function() {
         message.textContent =
             messages[messages.length - 1];
 
+        // FINAL NO = tiny
         noBtn.style.transform =
             "scale(0.3)";
 
         yesBtn.style.transform =
             "scale(2.25)";
-
     }
 
 });
-
 
 // ========================================
 // SCREEN TRANSITION
