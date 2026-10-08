@@ -639,12 +639,12 @@ function createCalendar(activity) {
             📋 My schedule
         </div>
 
-        <div>🔒 Oct 12 — Full working day</div>
-        <div>🔒 Oct 13 — Family plan</div>
-        <div>🔒 Oct 19 — Hotel duty</div>
-        <div>🔒 Oct 20 — Full working day</div>
-        <div>🔒 Oct 26 — Family plan</div>
-        <div>🔒 Oct 27 — Hotel duty</div>
+        <div>🔒 Oct 12 — Бүтэн ажилтай</div>
+        <div>🔒 Oct 13 — Дүүтэйгээ Shopping хийнэ</div>
+        <div>🔒 Oct 19 — Мэдээ уншина</div>
+        <div>🔒 Oct 20 — Хүлэгүүдтэй бэлтгэлтэй</div>
+        <div>🔒 Oct 26 — Ном зохиол бичнээ</div>
+        <div>🔒 Oct 27 — Бясалгалын анги эхлүүлэх</div>
     `;
 
     document
