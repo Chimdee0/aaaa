@@ -84,9 +84,10 @@ async function saveResponse(data) {
 // ========================================
 
 
-
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
+const limitedYesBtn =
+    document.getElementById("limitedYesBtn");
 const message = document.getElementById("message");
 
 let noCount = 0;
@@ -348,7 +349,15 @@ yesBtn.addEventListener("click", function() {
     });
 
 });
+// ========================================
+// 2 HOUR YES BUTTON
+// ========================================
 
+limitedYesBtn.addEventListener("click", function() {
+
+    yesBtn.click();
+
+});
 
 // ========================================
 // ACTIVITY BUTTONS
