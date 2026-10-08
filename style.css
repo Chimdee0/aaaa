@@ -80,7 +80,11 @@ button {
 
 #message {
     margin-top: 25px;
-    font-size: 16px;
+    font-family: "Comfortaa", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #6b3fa0;
+    transform: rotate(-2deg);
 }
 .activity-grid {
     display: grid;
