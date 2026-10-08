@@ -140,6 +140,7 @@ noBtn.addEventListener("click", function() {
 
         const randomY =
             Math.random() * maxY + 10;
+        noBtn.style.position = "absolute";
 
         noBtn.style.left =
             randomX + "px";
