@@ -337,10 +337,18 @@ button {
         transform: scale(1.06);
     }
 
+    
 }
 
 .calendar-days button.unavailable {
     opacity: 0.45;
     cursor: not-allowed;
     text-decoration: line-through;
+}
+#buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
 }
