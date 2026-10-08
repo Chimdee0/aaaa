@@ -13,9 +13,10 @@ body {
     font-family: Arial, sans-serif;
 
     background:
-        radial-gradient(circle at 20% 20%, #ffe8f0, transparent 35%),
-        radial-gradient(circle at 80% 80%, #e8e5ff, transparent 35%),
-        #f7f7f7;
+        radial-gradient(circle at 15% 20%, #ffd6e7, transparent 35%),
+        radial-gradient(circle at 85% 25%, #d9e8ff, transparent 35%),
+        radial-gradient(circle at 50% 90%, #e4d7ff, transparent 40%),
+        #fff5fb;
 }
 
 .card {
@@ -25,21 +26,23 @@ body {
     padding: 50px 30px;
 
     text-align: center;
-    animation: cardFloat 4s ease-in-out infinite;
 
-    background:
-        radial-gradient(circle at 10% 20%, rgba(255, 182, 193, 0.25) 0 35px, transparent 36px),
-        radial-gradient(circle at 90% 80%, rgba(173, 216, 230, 0.25) 0 45px, transparent 46px),
-        linear-gradient(135deg, #fff7fb, #f5f3ff, #f3fbff);
+    background: rgba(255, 255, 255, 0.68);
 
-    border-radius: 24px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 28px;
 
     box-shadow:
-        0 15px 50px rgba(0, 0, 0, 0.12);
+        0 20px 60px rgba(120, 80, 150, 0.18);
 
     position: relative;
     overflow: hidden;
-    
+
+    animation: cardFloat 4s ease-in-out infinite;
 }
 
 .emoji {
