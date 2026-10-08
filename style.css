@@ -40,9 +40,7 @@ body {
         0 20px 60px rgba(120, 80, 150, 0.18);
 
     position: relative;
-    overflow: visible;
-
-    animation: cardFloat 4s ease-in-out infinite;
+    overflow: hidden;
 }
 
 .emoji {
