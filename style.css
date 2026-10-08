@@ -317,7 +317,6 @@ button {
 #noBtn {
     position: relative;
     z-index: 100;
-
     transition:
         left 0.3s ease,
         top 0.3s ease,
