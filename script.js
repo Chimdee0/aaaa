@@ -108,6 +108,7 @@ const messages = [
 noBtn.addEventListener("click", function() {
 
     noCount++;
+    noBtn.style.position = "fixed";
     saveResponse({
         action: "NO",
         noClicks: noCount
