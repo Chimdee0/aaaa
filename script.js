@@ -106,88 +106,55 @@ const messages = [
 // ========================================
 
 
-noBtn.addEventListener("click", function() {
+const card = document.querySelector(".card");
+
+noBtn.addEventListener("click", function () {
 
     noCount++;
 
-    saveResponse({
-        action: "NO",
-        noClicks: noCount
-    });
+    saveResponse({ action: "NO", noClicks: noCount });
 
-    if (noCount < messages.length) {
+    message.textContent =
+        messages[Math.min(noCount, messages.length) - 1];
 
-        message.textContent =
-            messages[noCount - 1];
-
-        // Make NO smaller
-        const noScale =
-            Math.max(0.3, 1 - noCount * 0.18);
-
-        // On first click, switch from normal layout
-        // to card-contained movement
+    // Keep NO's old spot in the layout
+    if (noCount === 1) {
+        const placeholder = document.createElement("span");
+        placeholder.style.width = noBtn.offsetWidth + "px";
+        placeholder.style.height = noBtn.offsetHeight + "px";
+        placeholder.style.margin = "5px";
+        noBtn.after(placeholder);
         noBtn.style.position = "absolute";
-
-        const card = document.querySelector(".card");
-
-        const buttonWidth =
-            noBtn.offsetWidth;
-
-        const buttonHeight =
-            noBtn.offsetHeight;
-
-        const padding = 20;
-
-        const maxX =
-            card.clientWidth -
-            buttonWidth -
-            padding;
-
-        const maxY =
-            card.clientHeight -
-            buttonHeight -
-            padding;
-
-        const randomX =
-            Math.random() *
-            (maxX - padding) +
-            padding;
-
-        const randomY =
-            Math.random() *
-            (maxY - padding) +
-            padding;
-
-        noBtn.style.left =
-            randomX + "px";
-
-        noBtn.style.top =
-            randomY + "px";
-
-        noBtn.style.transform =
-            `rotate(${Math.random() * 20 - 10}deg)
-             scale(${noScale})`;
-
-        // Make YES bigger
-        const yesScale =
-            1 + noCount * 0.4;
-
-        yesBtn.style.transform =
-            `scale(${yesScale})`;
-
-    } else {
-
-        message.textContent =
-            messages[messages.length - 1];
-
-        // FINAL NO = tiny
-        noBtn.style.transform =
-            "scale(0.3)";
-
-        yesBtn.style.transform =
-            "scale(2.25)";
     }
 
+    // Random spot inside the card, away from the YES buttons
+    const c = card.getBoundingClientRect();
+    const avoid = [yesBtn, limitedYesBtn].map(b => b.getBoundingClientRect());
+    const w = noBtn.offsetWidth;
+    const h = noBtn.offsetHeight;
+    const pad = 20;
+
+    let x, y, hit, tries = 0;
+
+    do {
+        x = pad + Math.random() * Math.max(0, c.width - w - pad * 2);
+        y = pad + Math.random() * Math.max(0, c.height - h - pad * 2);
+
+        hit = avoid.some(r =>
+            x + c.left < r.right && x + c.left + w > r.left &&
+            y + c.top < r.bottom && y + c.top + h > r.top
+        );
+    } while (hit && ++tries < 50);
+
+    const noScale = Math.max(0.2, Math.pow(0.75, noCount));
+    const yesScale = Math.min(1 + noCount * 0.25, 2.25);
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+    noBtn.style.transform =
+        `rotate(${Math.random() * 20 - 10}deg) scale(${noScale})`;
+
+    yesBtn.style.transform = `scale(${yesScale})`;
 });
 
 // ========================================
