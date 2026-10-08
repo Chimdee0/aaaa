@@ -322,6 +322,21 @@ button {
         top 0.3s ease,
         transform 0.25s ease;
 }
+#limitedYesBtn {
+    animation: limitedPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes limitedPulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+
+}
 
 .calendar-days button.unavailable {
     opacity: 0.45;
