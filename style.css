@@ -352,3 +352,16 @@ button {
     flex-wrap: wrap;
     gap: 8px;
 }
+@media (max-width: 600px) {
+
+    #buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #buttons button {
+        width: 85%;
+        max-width: 280px;
+    }
+
+}
